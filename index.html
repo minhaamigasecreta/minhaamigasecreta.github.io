@@ -147,6 +147,15 @@
 
     
     <section>
+      <h2>Um varal de lembranças 📸</h2>
+      <p class="lead">Pequenos registros de um carinho enorme.</p>
+      <div class="varal">
+        <div class="lights" id="luzes" aria-hidden="true"></div>
+        <div class="polas" id="polas"></div>
+      </div>
+    </section>
+
+    <section>
       <h2>O que os livros e você têm em comum</h2>
       <p class="lead">Fiz uma lista. Não foi difícil.</p>
       <div class="grid" id="comum"></div>
@@ -196,7 +205,7 @@ const CONFIG = {
     "Você ama livro de um jeito contagiante. Já vi você falar de uma história com tanto brilho nos olhos que dá vontade de largar tudo e começar a ler (e é provavelmente por isso que você é a única bookinfluencer que eu sigo e confio atualmente e você sabe que eu sou do meio, então isso é beeeeem impactante kkkkkk). E ninguém ama Quarta Asa como você: o Xaden que se prepare, porque ele tem uma fã que sabe cada teoria, cada olhar e cada plot twist.",
     "Valeu por cada leitura que virou conversa, por cada surto acolhido e por cada áudio de trocentos minutos que ninguém pediu para encurtar e que todo mundo ouviu (principalmente aqueles revoltados sobre BOT). Tudo isso é cuidado, e a gente sente.",
     "Eu sei que cuidar de um clube dá trabalho: lembrar de data, escolher livro, mediar opinião, e ainda fazer todo mundo se sentir importante. Você faz isso com leveza e todo mundo ali dentro preza pelo seu trabalho. Todas as vezes que eu falo pra gente monetizar o clube de alguma forma é pra você ganhar dinheiro com isso, Caro, me revolta que você não ganhe nada!!!!!!! Puta trabalhão do cacete, ainda tendo que aturar um monte de maluca junta e num sobra um centavo pra tomar um sorvete, que absurdo, sabe?",
-    "Se a nossa amizade fosse um livro, seria daqueles que a gente demora a terminar de propósito, porque não quer que acabe. Com final feliz, claro, e com direito a epílogo, spin-off e universo expandido com crossover, nossas histórias sempre invadindo uma a da outra porque é melhor você não achar que vai se ver livre de mim não, ainda tô esperando alguém do clube ganhar na mega sena (Rita e Aline tem boas chances) pra organizar nossa excursão pra Zermatt".",
+    "Se a nossa amizade fosse um livro, seria daqueles que a gente demora a terminar de propósito, porque não quer que acabe. Com final feliz, claro, e com direito a epílogo, spin-off e universo expandido com crossover, nossas histórias sempre invadindo uma a da outra porque é melhor você não achar que vai se ver livre de mim não, ainda tô esperando alguém do clube ganhar na mega sena (Rita e Aline tem boas chances) pra organizar nossa excursão pra Zermatt.",
     "Que o seu Natal seja leve, com mesa cheia, gente querida por perto e uma pilha de livros novos esperando por você. Que o próximo ano traga muitas risadas, muitos 5 estrelas e que a série de Quarta Asa faça justiça ao nosso Xaden.",
     "Você é muito querida, Carol. Muito amada. Te amo por ser exatamente quem você é."
   ],
@@ -301,11 +310,11 @@ for(let i=0;i<14;i++){const l=el("i");l.style.setProperty("--c",luz[i%5]);l.styl
 const rot=[-3,2,-1.5,3,-2,1.5];
 CONFIG.fotos.forEach((leg,i)=>{
   const f=el("figure","pola");f.style.setProperty("--r",rot[i%6]+"deg");
-  const im=el("img");im.src="images/ela"+(i+1)+".jpg";im.alt="Foto "+(i+1);im.loading="lazy";
+  const im=el("img");im.src="images/ela"+(i+1)+".jpg";im.alt="Foto "+(i+1);im.loading="lazy";im.onerror=()=>{im.style.display="none"};
   f.appendChild(im);f.appendChild(el("span","",leg));$("polas").appendChild(f);
 });
 const g=el("figure","pola wide");g.style.setProperty("--r","-2deg");
-const gi=el("img");gi.src="images/primeiro-encontro.jpg";gi.alt="Encontro presencial em São Paulo";gi.loading="lazy";
+const gi=el("img");gi.src="images/primeiro-encontro.jpg";gi.alt="Encontro presencial em São Paulo";gi.loading="lazy";gi.onerror=()=>{gi.style.display="none"};
 g.appendChild(gi);g.appendChild(el("span","",CONFIG.legendaGrupo));$("polas").appendChild(g);
 
 // em comum
