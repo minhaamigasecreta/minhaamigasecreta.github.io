@@ -49,20 +49,7 @@
   h2{font-size:clamp(1.5rem,5vw,2rem);margin:0 0 6px}
   .lead{font-style:italic;opacity:.85;margin:0 auto 26px;max-width:46ch;line-height:1.5}
 
-  /* varal */
-  .varal{position:relative;padding-top:34px}
-  .lights{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;padding:0 4px;border-top:2px solid #0b1f1a;height:26px}
-  .lights i{width:12px;height:18px;margin-top:2px;border-radius:50% 50% 55% 55%;background:var(--c);
-    box-shadow:0 0 12px var(--c);animation:tw 2.4s ease-in-out var(--dl) infinite alternate}
-  @keyframes tw{from{opacity:.55}to{opacity:1}}
-  .polas{display:flex;flex-wrap:wrap;justify-content:center;gap:22px 16px;padding-top:12px}
-  .pola{width:150px;background:#fff;padding:8px 8px 10px;color:var(--ink);box-shadow:0 8px 18px rgba(0,0,0,.4);
-    transform:rotate(var(--r));position:relative;margin:0}
-  .pola::before{content:"";position:absolute;top:-9px;left:50%;width:14px;height:22px;margin-left:-7px;background:var(--gold);border-radius:3px;box-shadow:0 2px 3px rgba(0,0,0,.3)}
-  .pola img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
-  .pola.wide{width:230px}
-  .pola.wide img{aspect-ratio:auto}
-  .pola span{display:block;font-family:"Caveat",cursive;font-size:1.25rem;margin-top:6px;line-height:1.1}
+
 
   /* o que livros e você têm em comum */
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left}
@@ -201,8 +188,7 @@ const CONFIG = {
     "Que o seu Natal seja leve, com mesa cheia, gente querida por perto e uma pilha de livros novos esperando por você. Que o próximo ano traga muitas risadas, muitos 5 estrelas e que a série de Quarta Asa faça justiça ao nosso Xaden.",
     "Você é muito querida, Carol. Muito amada. Te amo por ser exatamente quem você é."
   ],
-  fotos: ["Oi, amigas!", "Opinião sincera", "Hora do surto", "Time Xaden", "Quase um áudio de 3 min"],
-  legendaGrupo: "Amizade que saiu da tela",
+  
   comum: [
     ["Fazem a gente se sentir em casa", "Dá para chegar cansada e sair mais leve.", "teal"],
     ["Sempre têm a indicação certa", "Na hora exata em que a gente precisava.", "plum"],
@@ -296,18 +282,7 @@ CONFIG.arvore.slice().reverse().forEach(([t,c],i)=>{
 });
 tree.appendChild(el("div","star"));
 
-// varal
-const luz=["#b3283d","#f2b632","#2a9d8f","#f26b5b","#9b59b6"];
-for(let i=0;i<14;i++){const l=el("i");l.style.setProperty("--c",luz[i%5]);l.style.setProperty("--dl",(i*.3)+"s");$("luzes").appendChild(l)}
-const rot=[-3,2,-1.5,3,-2,1.5];
-CONFIG.fotos.forEach((leg,i)=>{
-  const f=el("figure","pola");f.style.setProperty("--r",rot[i%6]+"deg");
-  const im=el("img");im.src="images/ela"+(i+1)+".jpg";im.alt="Foto "+(i+1);im.loading="lazy";im.onerror=()=>{im.style.display="none"};
-  f.appendChild(im);f.appendChild(el("span","",leg));$("polas").appendChild(f);
-});
-const g=el("figure","pola wide");g.style.setProperty("--r","-2deg");
-const gi=el("img");gi.src="images/primeiro-encontro.jpg";gi.alt="Encontro presencial em São Paulo";gi.loading="lazy";gi.onerror=()=>{gi.style.display="none"};
-g.appendChild(gi);g.appendChild(el("span","",CONFIG.legendaGrupo));$("polas").appendChild(g);
+
 
 // em comum
 CONFIG.comum.forEach(([t,d,c])=>{
